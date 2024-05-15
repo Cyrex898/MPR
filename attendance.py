@@ -12,6 +12,7 @@ import time
 import tkinter.font as font
 import pyttsx3
 from customtkinter import *
+import customtkinter
 
 # project module
 import show_attendance
@@ -44,16 +45,16 @@ attendance_path = "C:\\Users\\PARKASH\\Desktop\\CTK\Attendance-Management-system
 
 app = CTk()
 app.title("Face recognizer")
-app.geometry("1000x650")
+app.geometry("1000x740")
 dialog_title = "QUIT"
 dialog_text = "Are you sure want to close?"
 app.configure(background="black")
 
 
-canvas = tk.Canvas(app, width=790, height=1200, bd=0, highlightthickness=0, relief='ridge', background='black')
+canvas = tk.Canvas(app, width=790, height=1400, bd=0, highlightthickness=0, relief='ridge', background='black')
 canvas.place(x=1,y= 1)
 
-img= ImageTk.PhotoImage(Image.open("UI_Image/bg.jpg"))
+img= ImageTk.PhotoImage(Image.open("UI_Image/bg.png"))
 canvas.create_image(1,1,anchor=NW,image=img)
 
 # to destroy screen
@@ -95,6 +96,20 @@ def testVal(inStr, acttyp):
             return False
     return True
 
+brd = tk.Label(app,
+        fg="White",
+        bg="#42aaf5",
+        width=35,
+        relief=RIDGE,
+        bd=10,
+        font=("arial", 35)
+        )
+brd.place(x=790, y=1)
+
+titl = tk.Label(
+    app, text="Attendance Management", bg="#42aaf5", fg="white", font=("Helvetica", 30,'bold'),
+)
+titl.place(x=1040, y=12)
 
 ri = Image.open("UI_Image/register.png")
 new_size = (350, 350)  
@@ -103,7 +118,7 @@ r = ImageTk.PhotoImage(ri)
 label1 = Label(app, image=r)
 label1.image = r 
 label1 = tk.Label(border = 0, text = 'Submit', fg = 'black', image= r,bg = '#282424') 
-label1.place(x=850, y=100)
+label1.place(x=850, y=130)
 
 ai = Image.open("UI_Image/attendance.png")
 new_size = (350, 350)   
@@ -112,7 +127,7 @@ a = ImageTk.PhotoImage(ai)
 label2 = Label(app, image=a)
 label2.image = a
 label2 = tk.Label(border = 0, text = 'Submit', fg = 'black', image= a,bg = '#282424') 
-label2.place(x=1350, y=100)
+label2.place(x=1350, y=130)
 
 vi = Image.open("UI_Image/verifyy.png")
 new_size = (350, 350)   
@@ -121,7 +136,7 @@ v = ImageTk.PhotoImage(vi)
 label3 = Label(app, image=v)
 label3.image = v
 label3 = tk.Label(border = 0, text = 'Submit', fg = 'black', image= v,bg = '#282424') 
-label3.place(x=850, y=610)
+label3.place(x=850, y=630)
 
 
 li = Image.open("UI_Image/info.png")
@@ -131,7 +146,7 @@ l = ImageTk.PhotoImage(li)
 label4 = Label(app, image=l)
 label4.image = l
 label4 = tk.Label(border = 0, text = 'Submit', fg = 'black', image= l,bg = '#282424') 
-label4.place(x=1350, y=610)
+label4.place(x=1350, y=630)
 
 def TakeImageUI():
     ImageUI = Tk()
@@ -287,19 +302,19 @@ def TakeImageUI():
         width=12,
         relief=RIDGE,
     )
-    trainImg.place(x=360, y=350)
+    trainImg.place(x=360, y=370)
 
 r = CTkButton(master=app,
     fg_color="#42aaf5",
     height = 32,
     width= 90,
-    font=("Helvetica", 18,'bold'),
+    font=("Helvetica", 19,'bold'),
     hover_color="#27638f",
     corner_radius= 50,
     text="Register a new student",
     command=TakeImageUI
 )
-r.place(x=470, y=280)
+r.place(x=470, y=290)
 
 
 def automatic_attedance():
@@ -316,7 +331,7 @@ r = CTkButton(master=app,
     hover_color="#27638f",
     corner_radius= 50,
 )
-r.place(x=780, y=280)
+r.place(x=780, y=290)
 
 
 def view_attendance():
@@ -333,7 +348,7 @@ r = CTkButton(master=app,
     hover_color="#27638f",
     corner_radius= 50,
 )
-r.place(x=500, y=570)
+r.place(x=500, y=580)
 
 r = CTkButton(master=app,
     text="View Student Info",
@@ -345,7 +360,7 @@ r = CTkButton(master=app,
     hover_color="#27638f",
     corner_radius= 50,
 )
-r.place(x=780, y=570)
+r.place(x=780, y=580)
 
 r = CTkButton(master=app,
     text="EXIT",
@@ -353,11 +368,11 @@ r = CTkButton(master=app,
     fg_color="#42aaf5",
     height = 30,
     width= 100,
-    font=("sans", 18,),
+    font=("Helvetica", 18,'bold'),
     hover_color="#27638f",
     corner_radius= 15,
 )
-r.place(x=50, y=590)
+r.place(x=680, y=690)
 
 
 app.resizable(False, False)
